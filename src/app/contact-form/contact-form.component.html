@@ -1,0 +1,31 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+    <div class="container">
+      <div ngModelGroup="contact" #contact="ngModelGroup">
+
+        <div *ngIf="!contact.valid && contact.touched">
+        <!--useless just to describe valid for ModelGroup-->               
+        </div>
+          <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input  required ngModel #firstName="ngModel" name="firstName" id="firstName" type="text" class="form-control" minlength="3" maxlength="10" pattern="banana">
+                 <div class="alert alert-danger" *ngIf="!firstName.valid && firstName.touched">
+                   <div *ngIf="firstName.errors.required">
+                      First Name is Required
+                   </div>
+                   <div *ngIf="firstName.errors.minlength">
+                      First Name should be at least {{firstName.errors.minlength.requiredLength}} minumum
+                   </div>
+                   <div *ngIf="firstName.errors.pattern">
+                      First Name should be match pattern
+                   </div>
+                 </div>
+            </div>
+      </div>
+
+          <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea  ngModel #comment="ngModel" name="comment" id="comment" cols="30" rows="10" class="form-control"></textarea>
+          </div>
+            <button class="btn btn-default">Save</button>
+    </div>
+</form>

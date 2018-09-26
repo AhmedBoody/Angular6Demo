@@ -1,0 +1,84 @@
+<div class="container">
+    <h1>User Form</h1>
+    <form (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+               required minlength="4"
+               [(ngModel)]="user.name" name="name"  #myName="ngModel"> 
+               <div *ngIf="myName.invalid && (myName.dirty || myName.touched)"
+               class="alert alert-danger">
+           
+             <div *ngIf="myName.errors.required">
+               Name is required.
+             </div>
+             <div *ngIf="myName.errors.minlength">
+               Name must be at least {{myName.errors.minlength.requiredLength}} characters long.
+             </div>
+           </div>
+      </div>
+
+      <div class="form-group">
+          <label for="username">User Name</label>
+          <input type="text" class="form-control" id="username"
+                 required minlength="4"
+                 [(ngModel)]="user.username" name="username"  #myuserName="ngModel"> 
+                 <div *ngIf="myuserName.invalid && (myuserName.dirty || myuserName.touched)"
+                 class="alert alert-danger">
+             
+               <div *ngIf="myuserName.errors.required">
+                user  Name is required.
+               </div>
+               <div *ngIf="myuserName.errors.minlength">
+                 user Name must be at least {{myuserName.errors.minlength.requiredLength}} characters long.
+               </div>
+             </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email"> email</label>
+            <input type="text" class="form-control" id="email"
+                   required minlength="4"
+                   [(ngModel)]="user.email" name="email"  #myemail="ngModel"> 
+                   <div *ngIf="myemail.invalid && (myemail.dirty || myemail.touched)"
+                   class="alert alert-danger">
+               
+                 <div *ngIf="myemail.errors.required">
+                   mail is required.
+                 </div>
+                 <div *ngIf="myemail.errors.minlength">
+                    mail must be at least {{myemail.errors.minlength.requiredLength}} characters long.
+                 </div>
+               </div>
+          </div>
+
+      <button type="submit" class="btn btn-success"  [disabled]="!userForm.form.valid">Submit</button>
+    </form>
+    <hr>
+    {{userForm.form.valid}}
+    <div  *ngIf="persons.length>0">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let person of persons;let i = index">
+
+                  {{person.id}} - {{person.name}}
+                  <br>
+                  {{person.username}} 
+                  <br>
+                  {{person.email}}
+              <span class="pull-right">
+               <button type="button" class="btn btn-danger" (click)="deleteItem(person.id)">
+                 <i class="glyphicon glyphicon-remove"></i> delete
+               </button>
+               &nbsp;&nbsp;
+                <button type="button" class="btn btn-default" (click)="editItem(person)">
+                  <i class="glyphicon glyphicon-pencil"></i> edit
+                </button>
+                <a [routerLink]="['/user/', person.id]">details</a>
+              </span>
+            </li>
+        </ul>
+        
+      </div>
+  </div>
+  
+  

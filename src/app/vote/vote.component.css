@@ -1,0 +1,15 @@
+.highlighted{
+    color:orange;
+    font-weight: bold;
+}
+.voter{
+    text-align: center;
+    width: 20px;
+    color: #999;
+}
+.vote-count{
+font-size: 1.2em;
+}
+.vote-button{
+    cursor: pointer;
+    }

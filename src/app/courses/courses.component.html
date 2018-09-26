@@ -1,0 +1,31 @@
+<p appHighlight>
+{{title}}
+</p>
+<div  *ngIf="persons.length>0">
+<!--  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let person of persons;let i = index;let isEven = even">
+        {{person.id}} - {{person.name}}
+        <br>
+        <b>Address</b>
+        {{person.address.zipcode}} - 
+        {{person.address.city}} -
+        {{person.address.suite}} -
+        {{person.address.street}}
+      </li>
+  </ul>-->
+  <button (click)="addPerson()"> Add</button>
+  <div class="table">
+   <table class="table table-condensed">
+       <tr *ngFor="let person of persons;let i = index;let isEven = even" [style.background]="isEven ? '#e3e3e3':'#fff'">
+         <td>
+          {{person.id}} - {{person.name}} - 
+          <button class="btn btn-danger" (click)="onRemove(person)">Remove</button>
+         </td>
+       </tr>
+   </table>
+  </div>
+</div>
+
+<div  *ngIf="persons.length==0">
+No Courses
+  </div>

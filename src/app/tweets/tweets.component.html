@@ -1,0 +1,17 @@
+<div *ngFor="let tweet of list">
+  {{course}}
+</div>
+
+<div class="media" *ngFor="let tweet of list">
+  <img class="mr-3" src="{{tweet.ImageUrl}}" alt="Generic placeholder image">
+  <div class="media-body">
+    <h5 class="mt-0">{{tweet.name | uppercase }}</h5>
+   <i>salary</i> <b> {{tweet.Salary  | currency:'LE':true:'2.2-2'}}</b>
+   <br>
+   <i>rate</i> <b> {{tweet.Rate |number:'2.2-2'}}</b>
+   <br>
+    <i>birthDate</i> <b> {{tweet.birthDate | date:'MMM yyyy'}}</b>
+    {{tweet.desc}}
+    <i class="glyphicon glyphicon-heart"  (click)="onClick(tweet)" [style.color]="tweet.isLiked ? 'deeppink' : '#ccc'"></i> {{tweet.likeCounter}}
+  </div>
+</div>

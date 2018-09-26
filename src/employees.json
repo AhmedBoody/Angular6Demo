@@ -1,0 +1,49 @@
+{
+    "employees":[
+    {
+        "firstName": "Ahmed",
+        "lastName": "Mohamed",
+        "phone": "01283106927",
+        "city": "cairo",
+        "country": "egypt",
+        "email": "boody@gmail.com",
+        "salary": 1000
+    },
+    {
+        "firstName": "Sayed",
+        "lastName": "Hassan",
+        "phone": "010083106927",
+        "city": "giza",
+        "country": "egypt",
+        "email": "sayed@gmail.com",
+        "salary": 2000
+    },
+    {
+        "firstName": "Mona",
+        "lastName": "Mohamed",
+        "phone": "01183106927",
+        "city": "Alex",
+        "country": "egypt",
+        "email": "mona@gmail.com",
+        "salary": 500
+    },
+    {
+        "firstName": "Mostafa",
+        "lastName": "Sayed",
+        "phone": "01293187363",
+        "city": "Ryad",
+        "country": "KSA",
+        "email": "Mostafa@gmail.com",
+        "salary": 11000
+    },
+    {
+        "firstName": "Mahmoud",
+        "lastName": "Mohamed",
+        "phone": "01113106927",
+        "city": "cairo",
+        "country": "egypt",
+        "email": "hoda@gmail.com",
+        "salary": 1500
+    }
+]
+}
