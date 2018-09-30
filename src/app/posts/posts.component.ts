@@ -6,16 +6,25 @@ import { Http } from '@angular/http';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css']
 })
-export class PostsComponent implements OnInit {
-
-  constructor(http:Http) {
-    http.get('https://jsonplaceholder.typicode.com/posts')
+export class PostsComponent {
+  private url = 'https://jsonplaceholder.typicode.com/posts';
+  posts:any[];
+  constructor(private http:Http) {
+    http.get(this.url)
     .subscribe(response=>{
-      console.log(response.json());
+      this.posts = response.json();
     });
    }
 
-  ngOnInit() {
-  }
-
+   createPost(input:HTMLInputElement)
+   {
+     let post:any = {
+        title : input.value
+     };
+     this.http.post(this.url,JSON.stringify(post))
+     .subscribe(response=> {
+       post.id = response.json().id;
+       this.posts.splice(0,0,post);
+     });
+   }
 }
