@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';  
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms'
+import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseService } from './course.service';
@@ -24,17 +24,21 @@ import{HttpModule} from '@angular/http';
 import { UserformComponent } from './userform/userform.component';
 import{RouterModule, Routes} from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import{SignupFormComponent} from './signup-form/signup-form.component'
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { NewCourseComponent } from './new-course/new-course.component';
 
 const appRoute:Routes=[
   {path:'',component:HomeComponent},
   {path:'courses',component:CoursesComponent},
   {path:'authors',component:AuthorsComponent},
   {path:'users',component:UserformComponent},
-  {path:'user/:id',component:UserProfileComponent}
+  {path:'signUp',component:SignupFormComponent},
+  {path:'user/:id',component:UserProfileComponent},
+  {path:'newCourse',component:NewCourseComponent}
 ];
 @NgModule({
   declarations: [
@@ -57,12 +61,15 @@ const appRoute:Routes=[
     NavbarComponent,
     UserProfileComponent,
     InputFormatDirective,
-    ContactFormComponent
+    ContactFormComponent,
+    SignupFormComponent,
+    NewCourseComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     ButtonsModule.forRoot(),
     AccordionModule.forRoot(),
