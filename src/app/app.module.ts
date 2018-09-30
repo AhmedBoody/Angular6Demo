@@ -30,6 +30,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { NewCourseComponent } from './new-course/new-course.component';
+import { PostsComponent } from './posts/posts.component';
 
 const appRoute:Routes=[
   {path:'',component:HomeComponent},
@@ -38,7 +39,8 @@ const appRoute:Routes=[
   {path:'users',component:UserformComponent},
   {path:'signUp',component:SignupFormComponent},
   {path:'user/:id',component:UserProfileComponent},
-  {path:'newCourse',component:NewCourseComponent}
+  {path:'newCourse',component:NewCourseComponent},
+  {path:'Posts',component:PostsComponent}
 ];
 @NgModule({
   declarations: [
@@ -63,7 +65,8 @@ const appRoute:Routes=[
     InputFormatDirective,
     ContactFormComponent,
     SignupFormComponent,
-    NewCourseComponent
+    NewCourseComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
