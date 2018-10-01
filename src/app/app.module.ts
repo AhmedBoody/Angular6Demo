@@ -7,6 +7,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { CourseService } from './course.service';
 import {AuthorService} from './author.service';
 import{TweetsService} from './tweets.service'
+import{PostService} from './services/post.service';
 import { AuthorsComponent } from './authors/authors.component';
 import { AutoGrowDirective } from './auto-grow.directive';
 import { HighlightDirective } from './highlight.directive';
@@ -78,7 +79,7 @@ const appRoute:Routes=[
     AccordionModule.forRoot(),
     RouterModule.forRoot(appRoute)
   ],
-  providers: [CourseService,AuthorService,TweetsService],
+  providers: [CourseService,AuthorService,TweetsService,PostService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
