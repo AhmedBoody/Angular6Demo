@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import{CourseService} from '../course.service'
 
 @Component({
@@ -11,7 +11,7 @@ export class UserProfileComponent implements OnInit {
 name:any;
 persons :Person[]=[];
 person:Person;
-  constructor(private courseService :CourseService,private route: ActivatedRoute) {
+  constructor(private courseService :CourseService,private route: ActivatedRoute,private router:Router) {
     courseService.getPersons().subscribe(data =>{
       this.persons= data;
       this.route.params.subscribe(params => {
@@ -29,7 +29,9 @@ person:Person;
   ngOnInit() {
    
   }
-
+submit(){
+  this.router.navigate(['/Posts/1'],{queryParams:{page:1,pageSize:20}});
+}
 }
 
 
