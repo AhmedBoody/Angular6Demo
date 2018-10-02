@@ -1,3 +1,4 @@
+import { DataService } from './services/data.Service';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';  
 import { NgModule } from '@angular/core';
@@ -32,6 +33,7 @@ import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { NewCourseComponent } from './new-course/new-course.component';
 import { PostsComponent } from './posts/posts.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoute:Routes=[
   {path:'',component:HomeComponent},
@@ -39,9 +41,10 @@ const appRoute:Routes=[
   {path:'authors',component:AuthorsComponent},
   {path:'users',component:UserformComponent},
   {path:'signUp',component:SignupFormComponent},
-  {path:'user/:id',component:UserProfileComponent},
+  {path:'user/:id/:userName',component:UserProfileComponent},
   {path:'newCourse',component:NewCourseComponent},
-  {path:'Posts',component:PostsComponent}
+  {path:'Posts/:id',component:PostsComponent},
+  {path:'**',component:NotFoundComponent}
 ];
 @NgModule({
   declarations: [
@@ -67,7 +70,8 @@ const appRoute:Routes=[
     ContactFormComponent,
     SignupFormComponent,
     NewCourseComponent,
-    PostsComponent
+    PostsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +83,7 @@ const appRoute:Routes=[
     AccordionModule.forRoot(),
     RouterModule.forRoot(appRoute)
   ],
-  providers: [CourseService,AuthorService,TweetsService,PostService],
+  providers: [CourseService,AuthorService,TweetsService,DataService,PostService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

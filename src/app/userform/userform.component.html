@@ -73,7 +73,7 @@
                 <button type="button" class="btn btn-default" (click)="editItem(person)">
                   <i class="glyphicon glyphicon-pencil"></i> edit
                 </button>
-                <a [routerLink]="['/user/', person.id]">details</a>
+                <a [routerLink]="['/user/', person.id]" [queryParams]="{page:1,pageSize:20}">details</a>
               </span>
             </li>
         </ul>

@@ -4,12 +4,11 @@
         <a class="navbar-brand" href="#">App Test</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#" routerLink="/">Home</a></li>
-        <li><a href="#" routerLink="/courses">courses</a></li>
-        <li><a href="#" routerLink="/users">users</a></li>
-        <li><a href="#" routerLink="/signUp">Sign Up</a></li>
-        <li><a href="#" routerLink="/newCourse">new Course</a></li>
-        <li><a href="#" routerLink="/Posts"> Posts</a></li>
+        <li routerLinkActive="active"><a href="#" routerLink="/courses">courses</a></li>
+        <li routerLinkActive="active"><a href="#" routerLink="/users">users</a></li>
+        <li routerLinkActive="active"><a href="#" routerLink="/signUp">Sign Up</a></li>
+        <li routerLinkActive="active"><a href="#" routerLink="/newCourse">new Course</a></li>
+        <li routerLinkActive="active"><a href="#" routerLink="/Posts/1" [queryParams]={page:1,pageSize:10}> Posts</a></li>
       </ul>
     </div>
   </nav>

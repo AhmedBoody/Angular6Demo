@@ -19,6 +19,9 @@ data : Observable<Array<string>>;
     getPersons(){
         return this.data = this.http.get('https://jsonplaceholder.typicode.com/users').pipe(map(res => res.json()));
     };
+    getPerson(id){
+      return this.data = this.http.get('https://jsonplaceholder.typicode.com/users/'+id).pipe(map(res => res.json()));
+  };
 
     addPerson(user){
       return  this.http.post('https://jsonplaceholder.typicode.com/users',user).pipe(map(res => res.json()));
